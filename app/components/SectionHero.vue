@@ -1,4 +1,48 @@
 <script setup lang="ts">
+// --- Mouse-tracking gradient ---
+const heroRef = ref<HTMLElement>()
+const targetX = ref(50)
+const targetY = ref(50)
+const currentX = ref(50)
+const currentY = ref(50)
+const LERP_FACTOR = 0.06
+let rafId: number
+
+function lerp(a: number, b: number, t: number) {
+  return a + (b - a) * t
+}
+
+function animate() {
+  currentX.value = lerp(currentX.value, targetX.value, LERP_FACTOR)
+  currentY.value = lerp(currentY.value, targetY.value, LERP_FACTOR)
+  rafId = requestAnimationFrame(animate)
+}
+
+function onMouseMove(e: MouseEvent) {
+  if (!heroRef.value) return
+  const rect = heroRef.value.getBoundingClientRect()
+  targetX.value = ((e.clientX - rect.left) / rect.width) * 100
+  targetY.value = ((e.clientY - rect.top) / rect.height) * 100
+}
+
+function onMouseLeave() {
+  targetX.value = 50
+  targetY.value = 50
+}
+
+onMounted(() => {
+  animate()
+  heroRef.value?.addEventListener('mousemove', onMouseMove)
+  heroRef.value?.addEventListener('mouseleave', onMouseLeave)
+})
+
+onUnmounted(() => {
+  cancelAnimationFrame(rafId)
+  heroRef.value?.removeEventListener('mousemove', onMouseMove)
+  heroRef.value?.removeEventListener('mouseleave', onMouseLeave)
+})
+
+// --- Typewriter ---
 const roles = [
   'Senior Software Engineer',
   'Frontend Specialist',
@@ -37,7 +81,15 @@ onUnmounted(() => clearTimeout(timeout))
 </script>
 
 <template>
-  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+  <section ref="heroRef" id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Interactive mouse-following gradient -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      :style="{
+        background: `radial-gradient(700px circle at ${currentX}% ${currentY}%, rgba(99,102,241,0.12), transparent 70%)`
+      }"
+    />
+
     <!-- Dot grid background -->
     <div
       class="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:32px_32px]"
