@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { el: cardRef, isVisible: cardVisible } = useReveal()
+
 interface ContactLink {
   label: string
   href: string
@@ -31,7 +33,7 @@ const links: ContactLink[] = [
 <template>
   <section id="contact" class="py-28">
     <UContainer>
-      <div class="relative max-w-2xl mx-auto">
+      <div ref="cardRef" class="reveal relative max-w-2xl mx-auto" :class="{ 'is-visible': cardVisible }">
         <!-- Glow -->
         <div
           class="absolute inset-0 bg-indigo-600/5 rounded-3xl blur-3xl -z-10 scale-110"

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+const { el: headerRef, isVisible: headerVisible } = useReveal()
+const { el: gridRef, isVisible: gridVisible } = useReveal()
+
 interface Category {
   name: string
   color: 'indigo' | 'violet' | 'purple' | 'pink'
@@ -57,7 +60,7 @@ const colorTag: Record<Category['color'], string> = {
 
     <UContainer class="relative z-10">
       <!-- Section header -->
-      <div class="flex flex-col items-center text-center mb-16">
+      <div ref="headerRef" class="reveal flex flex-col items-center text-center mb-16" :class="{ 'is-visible': headerVisible }">
         <span class="text-indigo-400 text-xs font-bold uppercase tracking-[0.2em] mb-3">
           What I work with
         </span>
@@ -68,12 +71,13 @@ const colorTag: Record<Category['color'], string> = {
       </div>
 
       <!-- Categories grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div ref="gridRef" class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div
-          v-for="category in categories"
+          v-for="(category, index) in categories"
           :key="category.name"
-          class="rounded-2xl bg-white/[0.03] border backdrop-blur-sm p-6 hover:bg-white/[0.05] transition-colors duration-300"
-          :class="colorBorder[category.color]"
+          class="reveal rounded-2xl bg-white/[0.03] border backdrop-blur-sm p-6 hover:bg-white/[0.05] transition-colors duration-300"
+          :class="[{ 'is-visible': gridVisible }, colorBorder[category.color]]"
+          :style="{ transitionDelay: gridVisible ? `${index * 80}ms` : '0ms' }"
         >
           <h3
             class="text-xs font-bold uppercase tracking-[0.18em] mb-5"

@@ -1,4 +1,9 @@
 <script setup lang="ts">
+const { el: headerRef, isVisible: headerVisible } = useReveal()
+const { el: gridRef, isVisible: gridVisible } = useReveal()
+const { el: noticeRef, isVisible: noticeVisible } = useReveal()
+const { el: ctaRef, isVisible: ctaVisible } = useReveal()
+
 interface Project {
   title: string
   description: string
@@ -32,7 +37,7 @@ const projects: Project[] = [
   <section id="projects" class="py-28">
     <UContainer>
       <!-- Section header -->
-      <div class="flex flex-col items-center text-center mb-16">
+      <div ref="headerRef" class="reveal flex flex-col items-center text-center mb-16" :class="{ 'is-visible': headerVisible }">
         <span class="text-indigo-400 text-xs font-bold uppercase tracking-[0.2em] mb-3">
           What I've built
         </span>
@@ -44,11 +49,13 @@ const projects: Project[] = [
       </div>
 
       <!-- Public projects -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div ref="gridRef" class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
         <article
-          v-for="project in projects"
+          v-for="(project, index) in projects"
           :key="project.title"
-          class="group flex flex-col rounded-2xl bg-white/[0.03] border border-white/[0.08] overflow-hidden hover:border-indigo-500/30 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-indigo-500/5 transition-all duration-300"
+          class="reveal group flex flex-col rounded-2xl bg-white/[0.03] border border-white/[0.08] overflow-hidden hover:border-indigo-500/30 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-indigo-500/5 transition-all duration-300"
+          :class="{ 'is-visible': gridVisible }"
+          :style="{ transitionDelay: gridVisible ? `${index * 100}ms` : '0ms' }"
         >
           <!-- Card header gradient -->
           <div class="h-36 bg-gradient-to-br relative shrink-0" :class="project.gradient">
@@ -100,7 +107,7 @@ const projects: Project[] = [
       </div>
 
       <!-- Private work notice -->
-      <div class="mt-8 max-w-5xl mx-auto">
+      <div ref="noticeRef" class="reveal mt-8 max-w-5xl mx-auto" :class="{ 'is-visible': noticeVisible }">
         <div
           class="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4"
         >
@@ -127,7 +134,7 @@ const projects: Project[] = [
       </div>
 
       <!-- GitHub CTA -->
-      <div class="mt-8 text-center">
+      <div ref="ctaRef" class="reveal mt-8 text-center" :class="{ 'is-visible': ctaVisible }">
         <UButton
           href="https://github.com/lucentyr00101"
           target="_blank"

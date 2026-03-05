@@ -1,4 +1,7 @@
 <script setup lang="ts">
+const { el: headerRef, isVisible: headerVisible } = useReveal()
+const { el: timelineRef, isVisible: timelineVisible } = useReveal()
+
 interface Experience {
   role: string
   company: string
@@ -77,7 +80,7 @@ const typeStyles: Record<Experience['type'], { dot: string; glow: string }> = {
 
     <UContainer class="relative z-10">
       <!-- Section header -->
-      <div class="flex flex-col items-center text-center mb-16">
+      <div ref="headerRef" class="reveal flex flex-col items-center text-center mb-16" :class="{ 'is-visible': headerVisible }">
         <span class="text-indigo-400 text-xs font-bold uppercase tracking-[0.2em] mb-3">
           Where I've been
         </span>
@@ -89,7 +92,7 @@ const typeStyles: Record<Experience['type'], { dot: string; glow: string }> = {
       </div>
 
       <!-- Timeline -->
-      <div class="relative max-w-2xl mx-auto">
+      <div ref="timelineRef" class="relative max-w-2xl mx-auto">
         <!-- Vertical line -->
         <div
           class="absolute left-[22px] top-3 bottom-3 w-px bg-gradient-to-b from-indigo-500/60 via-white/10 to-transparent"
@@ -99,7 +102,9 @@ const typeStyles: Record<Experience['type'], { dot: string; glow: string }> = {
           <div
             v-for="(exp, index) in experiences"
             :key="index"
-            class="relative pl-14"
+            class="relative pl-14 reveal"
+            :class="{ 'is-visible': timelineVisible }"
+            :style="{ transitionDelay: timelineVisible ? `${index * 80}ms` : '0ms' }"
           >
             <!-- Timeline dot -->
             <div
