@@ -25,7 +25,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 <template>
   <header
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    class="fixed top-0 left-0 right-0 z-50 transition-[backdrop-filter,box-shadow,border-color] duration-300"
     :class="
       scrolled
         ? 'backdrop-blur-md bg-gray-950/90 border-b border-white/5 shadow-lg shadow-black/30'

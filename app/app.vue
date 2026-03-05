@@ -1,5 +1,5 @@
 <template>
-  <UApp>
+  <UApp class="bg-gray-950">
     <NuxtRouteAnnouncer />
     <NuxtLayout>
       <NuxtPage />
