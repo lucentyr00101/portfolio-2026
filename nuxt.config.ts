@@ -7,4 +7,11 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'dark',
   },
+  app: {
+    head: {
+      style: [
+        { children: 'html,body{background-color:#030712}' },
+      ],
+    },
+  },
 })
