@@ -59,7 +59,7 @@ const experiences: Experience[] = [
     projects: [
       {
         name: 'Onetop',
-        description: 'Feature-rich online gaming platform with animation-heavy interfaces built without third-party UI libraries.',
+        description: 'Feature-rich online gaming platform spanning 3 portals — a player-facing client, an agent management portal, and an admin back-office — all built with animation-heavy interfaces without third-party UI libraries.',
         stack: ['React', 'TypeScript', 'CSS Animations', 'REST APIs'],
       },
       {
