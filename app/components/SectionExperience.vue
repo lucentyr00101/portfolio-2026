@@ -2,12 +2,19 @@
 const { el: headerRef, isVisible: headerVisible } = useReveal()
 const { el: timelineRef, isVisible: timelineVisible } = useReveal()
 
+interface Project {
+  name: string
+  description: string
+  stack: string[]
+}
+
 interface Experience {
   role: string
   company: string
   period: string
   type: 'current' | 'past'
   highlights: string[]
+  projects?: Project[]
 }
 
 const experiences: Experience[] = [
@@ -21,6 +28,23 @@ const experiences: Experience[] = [
       'Integrated RESTful APIs and MongoDB data layers for dynamic, data-driven frontend features',
       'Conducted performance audits and applied targeted optimizations, reducing page load times across multiple modules',
     ],
+    projects: [
+      {
+        name: 'Nodiens',
+        description: 'Crypto and stablecoin market tracker with decentralized token listings, Reddit/Telegram trend analysis, and mood/trust indices per currency.',
+        stack: ['Nuxt 4', 'Nuxt UI', 'Chart.js', 'TypeScript', 'REST APIs'],
+      },
+      {
+        name: 'DAO Accounting',
+        description: 'Accounting management platform for DAOs with ledgers, journals, and full financial document workflows.',
+        stack: ['Nuxt 4', 'Nuxt UI', 'TypeScript'],
+      },
+      {
+        name: 'Education Certification',
+        description: 'Blockchain-powered platform for generating and distributing certificates to learners via the Hedera network.',
+        stack: ['Nuxt 4', 'Nuxt UI', 'Chart.js', 'MongoDB', 'Hedera Blockchain', 'TypeScript'],
+      },
+    ],
   },
   {
     role: 'Lead Frontend Developer',
@@ -31,6 +55,18 @@ const experiences: Experience[] = [
       'Built interactive, animation-rich UI features for an online gaming platform using React.js, without reliance on third-party UI libraries',
       'Led a team of 5 developers with 100% on-time feature delivery across all sprints, managing task allocation and code reviews',
       'Collaborated with designers to translate complex, visually rich mockups into polished, high-performance interfaces',
+    ],
+    projects: [
+      {
+        name: 'Onetop',
+        description: 'Feature-rich online gaming platform with animation-heavy interfaces built without third-party UI libraries.',
+        stack: ['React', 'TypeScript', 'CSS Animations', 'REST APIs'],
+      },
+      {
+        name: 'Onetop Rebrands',
+        description: 'Multiple white-label reskins of the Onetop platform tailored for different markets and operators.',
+        stack: ['React', 'TypeScript'],
+      },
     ],
   },
   {
@@ -43,6 +79,18 @@ const experiences: Experience[] = [
       'Mentored 5+ junior developers through code reviews, technical guidance, and structured feedback, accelerating team growth',
       'Integrated RESTful APIs and drove performance optimizations to improve application speed and user experience',
     ],
+    projects: [
+      {
+        name: 'Easygetapp',
+        description: 'Malaysia-focused app marketplace for discovering and distributing mobile applications.',
+        stack: ['React', 'Ant Design', 'TypeScript', 'REST APIs'],
+      },
+      {
+        name: 'EZPay / Opay / MPay / FPay',
+        description: 'Suite of four payment portals serving the Malaysian digital payments market.',
+        stack: ['React', 'Ant Design', 'TypeScript', 'REST APIs'],
+      },
+    ],
   },
   {
     role: 'Frontend Developer',
@@ -54,6 +102,18 @@ const experiences: Experience[] = [
       'Contributed to a high-profile Globe Telecom partnership, integrating GCash as an in-app payment solution for a nationwide user base',
       'Integrated RESTful APIs and implemented performance optimizations to improve application speed and reliability',
     ],
+    projects: [
+      {
+        name: 'Ives PH',
+        description: 'Automated voice call-out platform for enterprise-scale outbound communications.',
+        stack: ['Vue.js', 'Nuxt.js', 'TypeScript', 'REST APIs'],
+      },
+      {
+        name: 'Loadup',
+        description: "Load disbursement application for Globe Telecom's nationwide user base with GCash payment integration.",
+        stack: ['Vue.js', 'Nuxt.js', 'TypeScript', 'REST APIs', 'GCash Integration'],
+      },
+    ],
   },
   {
     role: 'Web Developer',
@@ -64,6 +124,18 @@ const experiences: Experience[] = [
       'Built and maintained full-stack web applications using Laravel and Vue.js, and developed custom WordPress sites for multiple clients',
       'Designed and managed databases to support complex, data-driven application workflows',
       'Led end-to-end development of a procurement tracking system for a national government office, handling 100% of the build from database architecture to UI',
+    ],
+    projects: [
+      {
+        name: 'Procurement Monitoring System',
+        description: 'End-to-end procurement tracking system for a national government agency, covering full CRUD workflows and reporting.',
+        stack: ['Vue.js', 'Laravel', 'MySQL', 'REST APIs'],
+      },
+      {
+        name: 'Government Websites',
+        description: 'Custom websites for multiple government entities with CMS capabilities.',
+        stack: ['WordPress', 'PHP', 'MySQL'],
+      },
     ],
   },
 ]
@@ -148,6 +220,25 @@ const typeStyles: Record<Experience['type'], { dot: string; glow: string }> = {
                   <span>{{ highlight }}</span>
                 </li>
               </ul>
+
+              <div v-if="exp.projects?.length" class="mt-4 pt-4 border-t border-white/[0.06]">
+                <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-600 mb-3">Projects</p>
+                <div class="space-y-3.5">
+                  <div v-for="project in exp.projects" :key="project.name">
+                    <p class="text-sm font-medium text-gray-300">{{ project.name }}</p>
+                    <p class="text-xs text-gray-500 mt-0.5 mb-2 leading-relaxed">{{ project.description }}</p>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span
+                        v-for="tech in project.stack"
+                        :key="tech"
+                        class="px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/[0.06] text-gray-500 text-[11px] font-medium"
+                      >
+                        {{ tech }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
