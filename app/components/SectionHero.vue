@@ -105,12 +105,20 @@ onUnmounted(() => clearTimeout(timeout))
 
     <UContainer class="relative z-10 pt-20 pb-16">
       <div class="max-w-4xl">
-        <!-- Status badge -->
-        <div
-          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium mb-10"
-        >
-          <span class="size-1.5 rounded-full bg-indigo-400 animate-pulse" />
-          Available for new opportunities
+        <!-- Status badges -->
+        <div class="flex flex-wrap items-center gap-3 mb-10">
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium"
+          >
+            <span class="size-1.5 rounded-full bg-indigo-400 animate-pulse" />
+            Available for new opportunities
+          </div>
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-gray-400 text-sm"
+          >
+            <UIcon name="i-heroicons-map-pin" class="size-3.5 shrink-0" />
+            Manila, PH &middot; UTC+8
+          </div>
         </div>
 
         <!-- Name -->
