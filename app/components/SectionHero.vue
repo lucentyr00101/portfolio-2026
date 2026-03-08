@@ -81,7 +81,7 @@ onUnmounted(() => clearTimeout(timeout))
 </script>
 
 <template>
-  <section ref="heroRef" id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+  <section id="hero" ref="heroRef" class="relative min-h-screen flex items-center overflow-hidden">
     <!-- Interactive mouse-following gradient -->
     <div
       class="absolute inset-0 pointer-events-none"
