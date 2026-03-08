@@ -11,6 +11,7 @@ interface Project {
   gradient: string
   github: string
   live?: string
+  headerIcons: string[]
 }
 
 const projects: Project[] = [
@@ -21,6 +22,7 @@ const projects: Project[] = [
     tags: ['Nuxt 4', 'Vue 3', 'TypeScript', 'Pinia', 'Nuxt UI', 'Tailwind CSS', 'Vitest', 'Playwright', 'Bun'],
     gradient: 'from-indigo-600/25 to-violet-600/25',
     github: 'https://github.com/lucentyr00101/performance-monitoring-tool-ui',
+    headerIcons: ['i-heroicons-chart-bar', 'i-heroicons-users', 'i-heroicons-bell'],
   },
   {
     title: 'Performance Monitoring Tool — API',
@@ -29,6 +31,7 @@ const projects: Project[] = [
     tags: ['TypeScript', 'Node.js', 'Bun', 'Docker', 'MongoDB', 'REST API'],
     gradient: 'from-violet-600/25 to-purple-600/25',
     github: 'https://github.com/lucentyr00101/performance-monitoring-tool-api',
+    headerIcons: ['i-heroicons-server', 'i-heroicons-circle-stack', 'i-heroicons-cpu-chip'],
   },
 ]
 </script>
@@ -62,6 +65,15 @@ const projects: Project[] = [
             <div
               class="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:20px_20px]"
             />
+            <!-- Domain icons -->
+            <div class="absolute inset-0 flex items-center justify-center gap-6">
+              <UIcon
+                v-for="icon in project.headerIcons"
+                :key="icon"
+                :name="icon"
+                class="size-10 text-white/20"
+              />
+            </div>
             <div class="absolute top-3 right-3">
               <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-semibold">
                 <span class="size-1.5 rounded-full bg-amber-400 animate-pulse" />

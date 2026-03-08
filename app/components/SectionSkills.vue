@@ -4,37 +4,34 @@ const { el: gridRef, isVisible: gridVisible } = useReveal()
 
 interface Category {
   name: string
-  color: 'indigo' | 'violet' | 'purple' | 'pink' | 'emerald'
+  color: 'indigo' | 'violet' | 'purple' | 'pink'
   skills: string[]
-  isLearning?: boolean
+  secondary?: string[]
 }
 
 const categories: Category[] = [
   {
     name: 'Frontend',
     color: 'indigo',
-    skills: ['Vue.js', 'Nuxt.js', 'React.js', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Pinia', 'Vuex'],
+    skills: ['Vue.js', 'Nuxt.js', 'React.js', 'TypeScript', 'Tailwind CSS', 'Pinia'],
+    secondary: ['JavaScript', 'HTML', 'CSS', 'Vuex'],
   },
   {
     name: 'Backend',
     color: 'violet',
-    skills: ['Laravel', 'Node.js', 'MongoDB'],
+    skills: ['Node.js', 'MongoDB', 'Bun'],
+    secondary: ['MySQL', 'Laravel'],
   },
   {
     name: 'Tools & Platforms',
     color: 'purple',
-    skills: ['Git', 'REST APIs', 'WordPress', 'Docker', 'Web3 (Hedera, NFTs)', 'Figma'],
+    skills: ['Git', 'Docker', 'REST APIs', 'Hedera Blockchain', 'NFT / Tokenization', 'DAO Tooling', 'Figma'],
+    secondary: ['WordPress'],
   },
   {
     name: 'Practices',
     color: 'pink',
-    skills: ['Agile / Scrum', 'Code Review', 'Performance Optimization', 'UI/UX Collaboration'],
-  },
-  {
-    name: 'Currently Exploring',
-    color: 'emerald',
-    isLearning: true,
-    skills: ['AI Tooling', 'LLM Integrations', 'Backend Development (MongoDB)'],
+    skills: ['Agile / Scrum', 'Code Review', 'Performance Optimization', 'AI-Augmented Development', 'UI/UX Collaboration'],
   },
 ]
 
@@ -43,7 +40,6 @@ const colorBorder: Record<Category['color'], string> = {
   violet: 'border-violet-500/25',
   purple: 'border-purple-500/25',
   pink: 'border-pink-500/25',
-  emerald: 'border-emerald-500/25',
 }
 
 const colorText: Record<Category['color'], string> = {
@@ -51,7 +47,6 @@ const colorText: Record<Category['color'], string> = {
   violet: 'text-violet-400',
   purple: 'text-purple-400',
   pink: 'text-pink-400',
-  emerald: 'text-emerald-400',
 }
 
 const colorTag: Record<Category['color'], string> = {
@@ -59,7 +54,13 @@ const colorTag: Record<Category['color'], string> = {
   violet: 'bg-violet-500/10 border-violet-500/20 text-violet-300 hover:bg-violet-500/20',
   purple: 'bg-purple-500/10 border-purple-500/20 text-purple-300 hover:bg-purple-500/20',
   pink: 'bg-pink-500/10 border-pink-500/20 text-pink-300 hover:bg-pink-500/20',
-  emerald: 'bg-emerald-500/10 border-emerald-500/20 text-emerald-300 hover:bg-emerald-500/20',
+}
+
+const colorTagSecondary: Record<Category['color'], string> = {
+  indigo: 'bg-white/[0.02] border-white/[0.06] text-gray-600 hover:bg-indigo-500/10 hover:text-indigo-400 hover:border-indigo-500/20',
+  violet: 'bg-white/[0.02] border-white/[0.06] text-gray-600 hover:bg-violet-500/10 hover:text-violet-400 hover:border-violet-500/20',
+  purple: 'bg-white/[0.02] border-white/[0.06] text-gray-600 hover:bg-purple-500/10 hover:text-purple-400 hover:border-purple-500/20',
+  pink:   'bg-white/[0.02] border-white/[0.06] text-gray-600 hover:bg-pink-500/10  hover:text-pink-400  hover:border-pink-500/20',
 }
 </script>
 
@@ -86,17 +87,13 @@ const colorTag: Record<Category['color'], string> = {
           v-for="(category, index) in categories"
           :key="category.name"
           class="reveal rounded-2xl bg-white/[0.03] border backdrop-blur-sm p-6 hover:bg-white/[0.05] transition-colors duration-300"
-          :class="[{ 'is-visible': gridVisible, 'md:col-span-2': category.isLearning }, colorBorder[category.color]]"
+          :class="[{ 'is-visible': gridVisible }, colorBorder[category.color]]"
           :style="{ transitionDelay: gridVisible ? `${index * 80}ms` : '0ms' }"
         >
           <h3
-            class="text-xs font-bold uppercase tracking-[0.18em] mb-5 flex items-center gap-2"
+            class="text-xs font-bold uppercase tracking-[0.18em] mb-5"
             :class="colorText[category.color]"
           >
-            <span
-              v-if="category.isLearning"
-              class="size-1.5 rounded-full bg-emerald-400 animate-pulse"
-            />
             {{ category.name }}
           </h3>
           <div class="flex flex-wrap gap-2">
@@ -108,6 +105,17 @@ const colorTag: Record<Category['color'], string> = {
             >
               {{ skill }}
             </span>
+            <template v-if="category.secondary?.length">
+              <div class="w-full h-px bg-white/[0.06] my-0.5" />
+              <span
+                v-for="skill in category.secondary"
+                :key="skill"
+                class="px-3 py-1.5 rounded-lg border text-sm font-medium transition-colors duration-200 cursor-default"
+                :class="colorTagSecondary[category.color]"
+              >
+                {{ skill }}
+              </span>
+            </template>
           </div>
         </div>
       </div>

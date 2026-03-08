@@ -45,7 +45,7 @@ onUnmounted(() => {
 // --- Typewriter ---
 const roles = [
   'Senior Software Engineer',
-  'Frontend Specialist',
+  'Vue & Nuxt Specialist',
   'Full-Stack Developer',
 ]
 
@@ -184,6 +184,7 @@ onUnmounted(() => clearTimeout(timeout))
           <a
             href="/resume.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             class="flex items-center gap-2 py-1 text-sm text-gray-500 hover:text-white transition-colors group"
           >
             <UIcon

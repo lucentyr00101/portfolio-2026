@@ -2,10 +2,10 @@
 useSeoMeta({
   title: 'Redilbert Ranz Sarcos | Senior Software Engineer',
   description:
-    'Portfolio of Redilbert Ranz Sarcos — Senior Software Engineer with 8+ years building performant, scalable web applications.',
+    'Vue and Nuxt specialist with 8+ years shipping production apps across fintech, gaming, and Web3 — led teams of 5, owned frontend architecture, and delivered on time.',
   ogTitle: 'Redilbert Ranz Sarcos | Senior Software Engineer',
   ogDescription:
-    'Portfolio of Redilbert Ranz Sarcos — Senior Software Engineer with 8+ years building performant, scalable web applications.',
+    'Vue and Nuxt specialist with 8+ years shipping production apps across fintech, gaming, and Web3 — led teams of 5, owned frontend architecture, and delivered on time.',
   ogUrl: 'https://portfolio-2026-jet-alpha.vercel.app/',
   ogType: 'website',
   ogImage: 'https://portfolio-2026-jet-alpha.vercel.app/og-image.png',
@@ -14,7 +14,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Redilbert Ranz Sarcos | Senior Software Engineer',
   twitterDescription:
-    'Portfolio of Redilbert Ranz Sarcos — Senior Software Engineer with 8+ years building performant, scalable web applications.',
+    'Vue and Nuxt specialist with 8+ years shipping production apps across fintech, gaming, and Web3 — led teams of 5, owned frontend architecture, and delivered on time.',
   twitterImage: 'https://portfolio-2026-jet-alpha.vercel.app/og-image.png',
 })
 

@@ -1,6 +1,15 @@
 <script setup lang="ts">
 const { el: cardRef, isVisible: cardVisible } = useReveal()
 
+const email = 'sarcosredilbertranz@gmail.com'
+const copied = ref(false)
+
+async function copyEmail() {
+  await navigator.clipboard.writeText(email)
+  copied.value = true
+  setTimeout(() => { copied.value = false }, 2000)
+}
+
 interface ContactLink {
   label: string
   href: string
@@ -50,18 +59,19 @@ const links: ContactLink[] = [
               Let's Work Together
             </h2>
             <p class="text-gray-400 text-lg leading-relaxed max-w-lg">
-              I'm always open to discussing new opportunities, interesting projects, or just a great
-              conversation about technology. I'll get back to you promptly.
+              Open to new opportunities, interesting projects, or just a great tech conversation.
+              Copy my email or connect on LinkedIn — I typically respond within 24 hours.
             </p>
           </div>
 
           <!-- Email CTA -->
           <UButton
-            href="mailto:sarcosredilbertranz@gmail.com"
             size="xl"
-            icon="i-heroicons-envelope"
+            :icon="copied ? 'i-heroicons-check' : 'i-heroicons-clipboard'"
+            :color="copied ? 'success' : 'primary'"
+            @click="copyEmail"
           >
-            Send Me an Email
+            {{ copied ? 'Email Copied!' : 'Copy Email Address' }}
           </UButton>
 
           <!-- Divider -->

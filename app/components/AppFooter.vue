@@ -7,7 +7,7 @@
         </p>
         <p class="flex items-center gap-1.5 text-gray-600 text-sm">
           <UIcon name="i-heroicons-map-pin" class="size-3.5 shrink-0" />
-          Manila, PH &middot; UTC+8 &middot; Open to Remote
+          Manila, PH &middot; UTC+8 &middot; Remote &middot; Full-time &amp; Contract
         </p>
         <p class="text-gray-600 text-sm">
           Built with
