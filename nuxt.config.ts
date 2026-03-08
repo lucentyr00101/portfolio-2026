@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     head: {
       meta: [
         { name: 'theme-color', content: '#030712' },
+        { name: 'google-site-verification', content: 'oigBAeseUg3slOHSMubhmUUKuWUnddOGz2M96zL-GYA' },
       ],
       link: [
         { rel: 'manifest', href: '/site.webmanifest' },
