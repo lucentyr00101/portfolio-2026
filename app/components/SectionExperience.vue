@@ -146,12 +146,12 @@ const typeStyles: Record<Experience['type'], { dot: string; glow: string }> = {
 }
 
 function getDuration(period: string): string {
-  const [startStr, endStr] = period.split(' — ')
+  const [startStr = '', endStr = ''] = period.split(' — ')
   const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
   const parse = (s: string): Date => {
     if (s.trim() === 'Present') return new Date()
-    const [mon, yr] = s.trim().split(' ')
+    const [mon = '', yr = ''] = s.trim().split(' ')
     return new Date(parseInt(yr), monthNames.indexOf(mon))
   }
 

@@ -53,12 +53,15 @@ const projects: Project[] = [
 
       <!-- Public projects -->
       <div ref="gridRef" class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        <article
+        <div
           v-for="(project, index) in projects"
           :key="project.title"
-          class="reveal group flex flex-col rounded-2xl bg-white/[0.03] border border-white/[0.08] overflow-hidden hover:border-indigo-500/30 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-indigo-500/5 transition-all duration-300"
+          class="reveal"
           :class="{ 'is-visible': gridVisible }"
           :style="{ transitionDelay: gridVisible ? `${index * 100}ms` : '0ms' }"
+        >
+        <article
+          class="group flex flex-col h-full rounded-2xl bg-white/[0.03] border border-white/[0.08] overflow-hidden hover:border-indigo-500/30 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-indigo-500/5 transition-[transform,border-color,box-shadow,background-color] duration-300 ease-out"
         >
           <!-- Card header gradient -->
           <div class="h-36 bg-gradient-to-br relative shrink-0" :class="project.gradient">
@@ -116,6 +119,7 @@ const projects: Project[] = [
             </a>
           </div>
         </article>
+        </div>
       </div>
 
       <!-- Private work notice -->
@@ -150,6 +154,7 @@ const projects: Project[] = [
         <UButton
           href="https://github.com/lucentyr00101"
           target="_blank"
+          rel="noopener noreferrer"
           color="primary"
           variant="ghost"
           trailing-icon="i-heroicons-arrow-top-right-on-square"

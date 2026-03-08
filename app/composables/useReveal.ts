@@ -6,8 +6,8 @@ export function useReveal(options?: { threshold?: number }) {
     if (!el.value) return
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
           isVisible.value = true
           observer.disconnect()
         }

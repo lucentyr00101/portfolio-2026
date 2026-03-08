@@ -63,6 +63,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           <UButton
             href="/resume.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             size="sm"
             color="primary"
             variant="outline"
@@ -99,7 +100,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
             {{ item.label }}
           </a>
           <div class="pt-2">
-            <UButton href="/resume.pdf" target="_blank" color="primary" size="sm" variant="outline" class="w-full">
+            <UButton href="/resume.pdf" target="_blank" rel="noopener noreferrer" color="primary" size="sm" variant="outline" class="w-full">
               Resume
             </UButton>
           </div>

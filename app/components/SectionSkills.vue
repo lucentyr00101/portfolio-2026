@@ -19,13 +19,13 @@ const categories: Category[] = [
   {
     name: 'Backend',
     color: 'violet',
-    skills: ['Node.js', 'MongoDB', 'Bun'],
+    skills: ['Node.js', 'MongoDB'],
     secondary: ['MySQL', 'Laravel'],
   },
   {
     name: 'Tools & Platforms',
     color: 'purple',
-    skills: ['Git', 'Docker', 'REST APIs', 'Hedera Blockchain', 'NFT / Tokenization', 'DAO Tooling', 'Figma'],
+    skills: ['Git', 'Bun', 'Docker', 'REST APIs', 'Hedera Blockchain', 'NFT / Tokenization', 'DAO Tooling', 'Figma'],
     secondary: ['WordPress'],
   },
   {

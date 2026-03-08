@@ -69,6 +69,7 @@ const links: ContactLink[] = [
             size="xl"
             :icon="copied ? 'i-heroicons-check' : 'i-heroicons-clipboard'"
             :color="copied ? 'success' : 'primary'"
+            class="cursor-pointer"
             @click="copyEmail"
           >
             {{ copied ? 'Email Copied!' : 'Copy Email Address' }}
