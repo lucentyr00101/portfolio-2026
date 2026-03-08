@@ -20,6 +20,29 @@ useSeoMeta({
 
 useHead({
   link: [{ rel: 'canonical', href: 'https://portfolio-2026-jet-alpha.vercel.app/' }],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Redilbert Ranz Sarcos',
+        jobTitle: 'Senior Software Engineer',
+        url: 'https://portfolio-2026-jet-alpha.vercel.app/',
+        email: 'sarcosredilbertranz@gmail.com',
+        sameAs: [
+          'https://github.com/lucentyr00101',
+          'https://www.linkedin.com/in/redilbert-ranz-sarcos/',
+        ],
+        knowsAbout: ['Vue.js', 'Nuxt.js', 'TypeScript', 'React.js', 'Node.js', 'MongoDB', 'Web3', 'Blockchain'],
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Manila',
+          addressCountry: 'PH',
+        },
+      }),
+    },
+  ],
 })
 </script>
 

@@ -12,6 +12,9 @@
         "vue": "^3.5.29",
         "vue-router": "^4.6.4",
       },
+      "devDependencies": {
+        "@iconify-json/simple-icons": "^1.2.72",
+      },
     },
   },
   "packages": {
@@ -186,6 +189,8 @@
     "@humanwhocodes/module-importer": ["@humanwhocodes/module-importer@1.0.1", "", {}, "sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA=="],
 
     "@humanwhocodes/retry": ["@humanwhocodes/retry@0.4.3", "", {}, "sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ=="],
+
+    "@iconify-json/simple-icons": ["@iconify-json/simple-icons@1.2.72", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-wkcixntHvaCoqPqerGrNFcHQ3Yx1ux4ZkhscCDK0DEHpP62XCH+cxq1HTsRjbUiQl/M9K8bj03HF6Wgn5iE2rQ=="],
 
     "@iconify/collections": ["@iconify/collections@1.0.657", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-I9NQh96i/a3GroGjnF77Hb1/KimE7KhJ8B1NQPE8MuDkvN2W3oNl4DYzQR+sgiGVOFsFjzu20NHsQ/69rv1vSQ=="],
 

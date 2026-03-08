@@ -37,6 +37,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         <!-- Logo -->
         <a
           href="#hero"
+          aria-label="Home"
           class="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity"
         >
           <span class="text-white">rrs</span><span class="text-indigo-400">.</span>

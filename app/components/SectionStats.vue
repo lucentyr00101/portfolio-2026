@@ -4,8 +4,8 @@ const { el: statsRef, isVisible } = useReveal()
 const stats = [
   { value: '8+', label: 'Years of Experience' },
   { value: '5', label: 'Companies Worked At' },
-  { value: '15+', label: 'Projects Shipped' },
-  { value: 'Open to\nRemote', label: 'Availability' },
+  { value: '15+', label: 'Projects Delivered' },
+  { value: 'Remote · Full-time\nor Contract', label: 'Availability' },
 ]
 </script>
 

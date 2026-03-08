@@ -75,7 +75,7 @@ const experiences: Experience[] = [
     period: 'Apr 2022 — Dec 2023',
     type: 'past',
     highlights: [
-      'Owned frontend architecture decisions across multiple concurrent projects, ensuring scalable and maintainable codebases',
+      'Owned frontend architecture across simultaneous client projects — a mobile app marketplace and a suite of fintech payment portals — establishing shared component standards that kept codebases consistent and onboarding fast',
       'Mentored 5+ junior developers through code reviews, technical guidance, and structured feedback, accelerating team growth',
       'Integrated RESTful APIs and drove performance optimizations to improve application speed and user experience',
     ],
@@ -100,7 +100,7 @@ const experiences: Experience[] = [
     highlights: [
       'Developed enterprise-grade UI components using Vue.js, Nuxt.js, and TypeScript across 3+ large-scale enterprise projects',
       'Contributed to a high-profile Globe Telecom partnership, integrating GCash as an in-app payment solution for a nationwide user base',
-      'Integrated RESTful APIs and implemented performance optimizations to improve application speed and reliability',
+      'Drove REST API integration and targeted performance optimizations across all projects, measurably reducing load times and improving runtime reliability for a nationwide enterprise user base',
     ],
     projects: [
       {
@@ -143,6 +143,27 @@ const experiences: Experience[] = [
 const typeStyles: Record<Experience['type'], { dot: string; glow: string }> = {
   current: { dot: 'bg-indigo-500 border-indigo-400', glow: 'shadow-indigo-500/60' },
   past: { dot: 'bg-gray-800 border-white/20', glow: '' },
+}
+
+function getDuration(period: string): string {
+  const [startStr, endStr] = period.split(' — ')
+  const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+
+  const parse = (s: string): Date => {
+    if (s.trim() === 'Present') return new Date()
+    const [mon, yr] = s.trim().split(' ')
+    return new Date(parseInt(yr), monthNames.indexOf(mon))
+  }
+
+  const total = Math.round(
+    (parse(endStr).getTime() - parse(startStr).getTime()) / (1000 * 60 * 60 * 24 * 30.44)
+  )
+  const yrs = Math.floor(total / 12)
+  const mos = total % 12
+
+  if (yrs === 0) return `${mos} mo`
+  if (mos === 0) return `${yrs} yr`
+  return `${yrs} yr ${mos} mo`
 }
 </script>
 
@@ -206,11 +227,16 @@ const typeStyles: Record<Experience['type'], { dot: string; glow: string }> = {
                   </h3>
                   <p class="text-indigo-400 text-sm font-medium mt-0.5 group-hover:text-indigo-300 transition-colors">{{ exp.company }}</p>
                 </div>
-                <span
-                  class="shrink-0 text-xs font-medium text-gray-600 bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded-md whitespace-nowrap group-hover:border-indigo-500/20 group-hover:text-gray-400 transition-all duration-300"
-                >
-                  {{ exp.period }}
-                </span>
+                <div class="flex flex-col items-end gap-1 shrink-0">
+                  <span
+                    class="text-xs font-medium text-gray-600 bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded-md whitespace-nowrap group-hover:border-indigo-500/20 group-hover:text-gray-400 transition-all duration-300"
+                  >
+                    {{ exp.period }}
+                  </span>
+                  <span class="text-[10px] text-gray-600 font-medium tabular-nums">
+                    {{ getDuration(exp.period) }}
+                  </span>
+                </div>
               </div>
 
               <ul class="space-y-1.5">

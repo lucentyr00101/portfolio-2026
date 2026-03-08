@@ -111,7 +111,7 @@ onUnmounted(() => clearTimeout(timeout))
             class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium"
           >
             <span class="size-1.5 rounded-full bg-indigo-400 animate-pulse" />
-            Available for new opportunities
+            Open to Remote Opportunities
           </div>
           <div
             class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-gray-400 text-sm"
@@ -139,17 +139,16 @@ onUnmounted(() => clearTimeout(timeout))
 
         <!-- Bio -->
         <p class="text-gray-400 text-lg leading-relaxed max-w-2xl mb-10">
-          I craft
-          <span class="text-white font-semibold">performant, scalable web applications</span>
-          with modern technologies. With 8+ years of experience across startups, agencies, and
-          enterprises, I bring technical depth, clean architecture, and a sharp focus on shipping
-          great products.
+          <span class="text-white font-semibold">Vue and Nuxt specialist</span>
+          with 8+ years shipping production apps across fintech, gaming, and Web3. I've led
+          teams of 5, owned frontend architecture end-to-end, and have a track record of
+          delivering complex, domain-specific products on time.
         </p>
 
         <!-- CTAs -->
         <div class="flex flex-wrap items-center gap-4 mb-14">
-          <UButton href="#projects" color="primary" size="lg" icon="i-heroicons-folder-open">
-            View Projects
+          <UButton href="#experience" color="primary" size="lg" icon="i-heroicons-briefcase">
+            See My Work
           </UButton>
           <UButton href="#contact" color="primary" size="lg" variant="ghost" trailing-icon="i-heroicons-arrow-right">
             Get in Touch
@@ -162,10 +161,10 @@ onUnmounted(() => clearTimeout(timeout))
             href="https://github.com/lucentyr00101"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors group"
+            class="flex items-center gap-2 py-1 text-sm text-gray-500 hover:text-white transition-colors group"
           >
             <UIcon
-              name="i-heroicons-code-bracket-square"
+              name="i-simple-icons-github"
               class="size-5 group-hover:text-indigo-400 transition-colors"
             />
             GitHub
@@ -174,10 +173,10 @@ onUnmounted(() => clearTimeout(timeout))
             href="https://www.linkedin.com/in/redilbert-ranz-sarcos/"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors group"
+            class="flex items-center gap-2 py-1 text-sm text-gray-500 hover:text-white transition-colors group"
           >
             <UIcon
-              name="i-heroicons-briefcase"
+              name="i-simple-icons-linkedin"
               class="size-5 group-hover:text-indigo-400 transition-colors"
             />
             LinkedIn
@@ -185,7 +184,7 @@ onUnmounted(() => clearTimeout(timeout))
           <a
             href="/resume.pdf"
             target="_blank"
-            class="flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors group"
+            class="flex items-center gap-2 py-1 text-sm text-gray-500 hover:text-white transition-colors group"
           >
             <UIcon
               name="i-heroicons-document-text"
@@ -199,7 +198,7 @@ onUnmounted(() => clearTimeout(timeout))
 
     <!-- Scroll indicator -->
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-      <span class="text-[10px] text-gray-700 uppercase tracking-[0.2em] font-medium">Scroll</span>
+      <span class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-medium">Scroll</span>
       <div class="w-px h-10 bg-gradient-to-b from-gray-600 to-transparent" />
     </div>
   </section>

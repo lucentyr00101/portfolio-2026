@@ -12,13 +12,13 @@ const links: ContactLink[] = [
   {
     label: 'GitHub',
     href: 'https://github.com/lucentyr00101',
-    icon: 'i-heroicons-code-bracket-square',
+    icon: 'i-simple-icons-github',
     external: true,
   },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/redilbert-ranz-sarcos/',
-    icon: 'i-heroicons-briefcase',
+    icon: 'i-simple-icons-linkedin',
     external: true,
   },
   {
