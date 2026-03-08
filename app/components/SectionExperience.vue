@@ -191,17 +191,23 @@ const typeStyles: Record<Experience['type'], { dot: string; glow: string }> = {
 
             <!-- Card -->
             <div
-              class="group rounded-2xl bg-white/[0.03] border border-white/[0.08] p-6 hover:border-indigo-500/25 hover:bg-white/[0.05] transition-all duration-300"
+              class="group relative overflow-hidden rounded-2xl bg-white/[0.03] border border-white/[0.08] p-6 hover:border-indigo-500/40 hover:bg-white/[0.06] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300"
             >
+              <!-- Hover gradient sweep -->
+              <div
+                class="pointer-events-none absolute inset-0 opacity-0 translate-x-10 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out"
+                style="background: radial-gradient(ellipse 80% 80% at 105% -5%, rgba(99,102,241,0.18) 0%, transparent 70%)"
+              />
+
               <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
                 <div>
                   <h3 class="font-semibold text-white group-hover:text-indigo-300 transition-colors">
                     {{ exp.role }}
                   </h3>
-                  <p class="text-indigo-400 text-sm font-medium mt-0.5">{{ exp.company }}</p>
+                  <p class="text-indigo-400 text-sm font-medium mt-0.5 group-hover:text-indigo-300 transition-colors">{{ exp.company }}</p>
                 </div>
                 <span
-                  class="shrink-0 text-xs font-medium text-gray-600 bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded-md whitespace-nowrap"
+                  class="shrink-0 text-xs font-medium text-gray-600 bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded-md whitespace-nowrap group-hover:border-indigo-500/20 group-hover:text-gray-400 transition-all duration-300"
                 >
                   {{ exp.period }}
                 </span>
@@ -211,27 +217,27 @@ const typeStyles: Record<Experience['type'], { dot: string; glow: string }> = {
                 <li
                   v-for="highlight in exp.highlights"
                   :key="highlight"
-                  class="flex items-start gap-2.5 text-sm text-gray-500"
+                  class="flex items-start gap-2.5 text-sm text-gray-500 group-hover:text-gray-400 transition-colors duration-300"
                 >
                   <UIcon
                     name="i-heroicons-chevron-right"
-                    class="size-3.5 text-indigo-500 mt-0.5 shrink-0"
+                    class="size-3.5 text-indigo-500 mt-0.5 shrink-0 group-hover:text-indigo-400 transition-colors duration-300"
                   />
                   <span>{{ highlight }}</span>
                 </li>
               </ul>
 
-              <div v-if="exp.projects?.length" class="mt-4 pt-4 border-t border-white/[0.06]">
-                <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-600 mb-3">Projects</p>
+              <div v-if="exp.projects?.length" class="mt-4 pt-4 border-t border-white/[0.06] group-hover:border-white/[0.10] transition-colors duration-300">
+                <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-600 mb-3 group-hover:text-gray-500 transition-colors duration-300">Projects</p>
                 <div class="space-y-3.5">
                   <div v-for="project in exp.projects" :key="project.name">
-                    <p class="text-sm font-medium text-gray-300">{{ project.name }}</p>
-                    <p class="text-xs text-gray-500 mt-0.5 mb-2 leading-relaxed">{{ project.description }}</p>
+                    <p class="text-sm font-medium text-gray-300 group-hover:text-gray-200 transition-colors duration-300">{{ project.name }}</p>
+                    <p class="text-xs text-gray-500 mt-0.5 mb-2 leading-relaxed group-hover:text-gray-400 transition-colors duration-300">{{ project.description }}</p>
                     <div class="flex flex-wrap gap-1.5">
                       <span
                         v-for="tech in project.stack"
                         :key="tech"
-                        class="px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/[0.06] text-gray-500 text-[11px] font-medium"
+                        class="px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/[0.06] text-gray-500 text-[11px] font-medium group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 group-hover:text-indigo-300 transition-all duration-300"
                       >
                         {{ tech }}
                       </span>
