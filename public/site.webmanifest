@@ -1,0 +1,22 @@
+{
+  "name": "Redilbert Ranz Sarcos",
+  "short_name": "RRS Portfolio",
+  "description": "Senior Software Engineer portfolio — Vue, Nuxt, TypeScript, Web3.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030712",
+  "theme_color": "#030712",
+  "icons": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

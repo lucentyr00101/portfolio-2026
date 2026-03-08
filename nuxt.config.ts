@@ -7,4 +7,15 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'dark',
   },
+  app: {
+    head: {
+      meta: [
+        { name: 'theme-color', content: '#030712' },
+      ],
+      link: [
+        { rel: 'manifest', href: '/site.webmanifest' },
+        { rel: 'apple-touch-icon', href: '/og-image.png' },
+      ],
+    },
+  },
 })
