@@ -153,7 +153,7 @@ onUnmounted(() => clearTimeout(timeout))
         </div>
 
         <!-- Bio -->
-        <p class="text-gray-400 text-lg leading-relaxed max-w-2xl mb-10">
+        <p class="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-2xl mb-10">
           <span class="text-white font-semibold">Vue and Nuxt specialist</span>
           with 8+ years shipping production apps across fintech, gaming, and Web3. I've led
           teams of 5, owned frontend architecture end-to-end, and have a track record of

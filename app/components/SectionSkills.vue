@@ -62,10 +62,10 @@ const colorTag: Record<Category['color'], string> = {
 }
 
 const colorTagSecondary: Record<Category['color'], string> = {
-  indigo: 'bg-white/[0.02] border-white/[0.06] text-gray-600 hover:bg-indigo-500/10 hover:text-indigo-400 hover:border-indigo-500/20',
-  violet: 'bg-white/[0.02] border-white/[0.06] text-gray-600 hover:bg-violet-500/10 hover:text-violet-400 hover:border-violet-500/20',
-  purple: 'bg-white/[0.02] border-white/[0.06] text-gray-600 hover:bg-purple-500/10 hover:text-purple-400 hover:border-purple-500/20',
-  pink:   'bg-white/[0.02] border-white/[0.06] text-gray-600 hover:bg-pink-500/10  hover:text-pink-400  hover:border-pink-500/20',
+  indigo: 'bg-white/[0.02] border-white/[0.06] text-gray-500 hover:bg-indigo-500/10 hover:text-indigo-400 hover:border-indigo-500/20',
+  violet: 'bg-white/[0.02] border-white/[0.06] text-gray-500 hover:bg-violet-500/10 hover:text-violet-400 hover:border-violet-500/20',
+  purple: 'bg-white/[0.02] border-white/[0.06] text-gray-500 hover:bg-purple-500/10 hover:text-purple-400 hover:border-purple-500/20',
+  pink:   'bg-white/[0.02] border-white/[0.06] text-gray-500 hover:bg-pink-500/10  hover:text-pink-400  hover:border-pink-500/20',
 }
 </script>
 

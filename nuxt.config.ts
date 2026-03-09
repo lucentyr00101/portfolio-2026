@@ -16,6 +16,12 @@ export default defineNuxtConfig({
       link: [
         { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'apple-touch-icon', href: '/og-image.png' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@300;400;500;600;700;800&display=swap',
+        },
       ],
     },
   },

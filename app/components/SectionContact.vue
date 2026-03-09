@@ -83,7 +83,7 @@ const links: ContactLink[] = [
           <!-- Divider -->
           <div class="flex items-center gap-3 w-full">
             <div class="flex-1 h-px bg-white/[0.06]" />
-            <span class="text-gray-700 text-xs uppercase tracking-widest">or find me on</span>
+            <span class="text-gray-500 text-xs uppercase tracking-widest">or find me on</span>
             <div class="flex-1 h-px bg-white/[0.06]" />
           </div>
 

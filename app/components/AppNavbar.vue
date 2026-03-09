@@ -27,7 +27,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   <header
     class="fixed top-0 left-0 right-0 z-50 transition-[backdrop-filter,box-shadow,border-color] duration-300"
     :class="
-      scrolled
+      scrolled || mobileMenuOpen
         ? 'backdrop-blur-md bg-gray-950/90 border-b border-white/5 shadow-lg shadow-black/30'
         : 'bg-transparent'
     "
@@ -38,7 +38,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         <a
           href="#hero"
           aria-label="Home"
-          class="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity"
+          class="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity font-display"
         >
           <span class="text-white">rrs</span><span class="text-indigo-400">.</span>
         </a>
@@ -48,7 +48,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           <li v-for="item in navItems" :key="item.href">
             <a
               :href="item.href"
-              class="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200 relative group"
+              class="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 relative group"
             >
               {{ item.label }}
               <span
@@ -94,7 +94,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
             v-for="item in navItems"
             :key="item.href"
             :href="item.href"
-            class="block px-2 py-2.5 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/5"
+            class="block px-2 py-2.5 text-sm font-medium text-gray-300 hover:text-white transition-colors rounded-lg hover:bg-white/5"
             @click="mobileMenuOpen = false"
           >
             {{ item.label }}
