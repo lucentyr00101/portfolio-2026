@@ -33,7 +33,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     "
   >
     <UContainer>
-      <nav class="flex items-center justify-between h-16">
+      <nav class="relative z-10 flex items-center justify-between h-16">
         <!-- Logo -->
         <a
           href="#hero"
@@ -72,14 +72,14 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
             Resume
           </UButton>
           <button
-            class="md:hidden text-gray-400 hover:text-white transition-colors p-1"
+            class="md:hidden hamburger p-1"
+            :class="{ 'is-open': mobileMenuOpen }"
             :aria-label="mobileMenuOpen ? 'Close menu' : 'Open menu'"
             @click="mobileMenuOpen = !mobileMenuOpen"
           >
-            <UIcon
-              :name="mobileMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'"
-              class="size-6"
-            />
+            <span class="bar bar-top" />
+            <span class="bar bar-mid" />
+            <span class="bar bar-bot" />
           </button>
         </div>
       </nav>
@@ -121,4 +121,40 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   opacity: 0;
   transform: translateY(-8px);
 }
+
+/* Animated hamburger */
+.hamburger {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: rgb(156 163 175); /* gray-400 */
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+.hamburger:hover {
+  color: white;
+}
+
+.bar {
+  position: absolute;
+  left: 5px; /* (32 - 22) / 2 */
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Centers at y=10, y=16, y=22 — evenly spaced around the 32px midpoint */
+.bar-top { top: 9px; }
+.bar-mid { top: 15px; }
+.bar-bot { top: 21px; }
+
+/* Each outer bar travels 6px to meet at the container center (y=16) */
+.is-open .bar-top { transform: translateY(6px) rotate(45deg); }
+.is-open .bar-mid { opacity: 0; transform: scaleX(0); }
+.is-open .bar-bot { transform: translateY(-6px) rotate(-45deg); }
 </style>
