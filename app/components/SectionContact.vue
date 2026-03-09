@@ -40,8 +40,13 @@ const links: ContactLink[] = [
 </script>
 
 <template>
-  <section id="contact" class="py-28">
-    <UContainer>
+  <section id="contact" class="py-28 relative overflow-hidden">
+    <!-- Dot grid -->
+    <div class="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:32px_32px]" />
+    <!-- Ambient orbs -->
+    <div class="absolute -bottom-20 -left-40 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
+    <div class="absolute -top-20 -right-40 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none" />
+    <UContainer class="relative z-10">
       <div ref="cardRef" class="reveal relative max-w-2xl mx-auto" :class="{ 'is-visible': cardVisible }">
         <!-- Glow -->
         <div

@@ -37,8 +37,9 @@ const projects: Project[] = [
 </script>
 
 <template>
-  <section id="projects" class="py-28">
-    <UContainer>
+  <section id="projects" class="py-28 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900/30 to-gray-950" />
+    <UContainer class="relative z-10">
       <!-- Section header -->
       <div ref="headerRef" class="reveal flex flex-col items-center text-center mb-16" :class="{ 'is-visible': headerVisible }">
         <span class="text-indigo-400 text-xs font-bold uppercase tracking-[0.2em] mb-3">
@@ -164,4 +165,5 @@ const projects: Project[] = [
       </div>
     </UContainer>
   </section>
+
 </template>

@@ -5,6 +5,7 @@ const { el: gridRef, isVisible: gridVisible } = useReveal()
 interface Category {
   name: string
   color: 'indigo' | 'violet' | 'purple' | 'pink'
+  icon: string
   skills: string[]
   secondary?: string[]
 }
@@ -13,24 +14,28 @@ const categories: Category[] = [
   {
     name: 'Frontend',
     color: 'indigo',
+    icon: 'i-heroicons-computer-desktop',
     skills: ['Vue.js', 'Nuxt.js', 'React.js', 'TypeScript', 'Tailwind CSS', 'Pinia'],
     secondary: ['JavaScript', 'HTML', 'CSS', 'Vuex'],
   },
   {
     name: 'Backend',
     color: 'violet',
+    icon: 'i-heroicons-circle-stack',
     skills: ['Node.js', 'MongoDB'],
     secondary: ['MySQL', 'Laravel'],
   },
   {
     name: 'Tools & Platforms',
     color: 'purple',
+    icon: 'i-heroicons-wrench-screwdriver',
     skills: ['Git', 'Bun', 'Docker', 'REST APIs', 'Hedera Blockchain', 'NFT / Tokenization', 'DAO Tooling', 'Figma'],
     secondary: ['WordPress'],
   },
   {
     name: 'Practices',
     color: 'pink',
+    icon: 'i-heroicons-light-bulb',
     skills: ['Agile / Scrum', 'Code Review', 'Performance Optimization', 'AI-Augmented Development', 'UI/UX Collaboration'],
   },
 ]
@@ -90,12 +95,12 @@ const colorTagSecondary: Record<Category['color'], string> = {
           :class="[{ 'is-visible': gridVisible }, colorBorder[category.color]]"
           :style="{ transitionDelay: gridVisible ? `${index * 80}ms` : '0ms' }"
         >
-          <h3
-            class="text-xs font-bold uppercase tracking-[0.18em] mb-5"
-            :class="colorText[category.color]"
-          >
-            {{ category.name }}
-          </h3>
+          <div class="flex items-center gap-2 mb-5">
+            <UIcon :name="category.icon" class="size-4 shrink-0" :class="colorText[category.color]" />
+            <h3 class="text-xs font-bold uppercase tracking-[0.18em]" :class="colorText[category.color]">
+              {{ category.name }}
+            </h3>
+          </div>
           <div class="flex flex-wrap gap-2">
             <span
               v-for="skill in category.skills"
