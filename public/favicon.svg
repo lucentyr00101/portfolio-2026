@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <text
+    x="50%"
+    y="52%"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    font-family="Bricolage Grotesque, system-ui, sans-serif"
+    font-weight="700"
+    font-size="50"
+    letter-spacing="-2"
+    fill="white"
+  >rrs<tspan fill="#818cf8">.</tspan></text>
+</svg>

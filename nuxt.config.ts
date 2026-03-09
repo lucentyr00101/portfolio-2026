@@ -14,6 +14,7 @@ export default defineNuxtConfig({
         { name: 'google-site-verification', content: 'HpEYBuoAYjQIzebFQ0ncemNegruVD64vubsV0vuMCVM' },
       ],
       link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'apple-touch-icon', href: '/og-image.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
