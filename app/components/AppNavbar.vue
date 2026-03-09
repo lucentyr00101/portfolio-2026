@@ -58,19 +58,8 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           </li>
         </ul>
 
-        <!-- Resume CTA + mobile toggle -->
+        <!-- Mobile toggle -->
         <div class="flex items-center gap-3">
-          <UButton
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            size="sm"
-            color="primary"
-            variant="outline"
-            class="hidden md:flex"
-          >
-            Resume
-          </UButton>
           <button
             class="md:hidden hamburger p-1"
             :class="{ 'is-open': mobileMenuOpen }"
@@ -99,11 +88,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           >
             {{ item.label }}
           </a>
-          <div class="pt-2">
-            <UButton href="/resume.pdf" target="_blank" rel="noopener noreferrer" color="primary" size="sm" variant="outline" class="w-full">
-              Resume
-            </UButton>
-          </div>
+
         </div>
       </Transition>
     </UContainer>

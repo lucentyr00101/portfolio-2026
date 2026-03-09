@@ -30,12 +30,6 @@ const links: ContactLink[] = [
     icon: 'i-simple-icons-linkedin',
     external: true,
   },
-  {
-    label: 'Resume',
-    href: '/resume.pdf',
-    icon: 'i-heroicons-document-text',
-    external: true,
-  },
 ]
 </script>
 

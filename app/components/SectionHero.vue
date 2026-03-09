@@ -196,18 +196,6 @@ onUnmounted(() => clearTimeout(timeout))
             />
             LinkedIn
           </a>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 py-1 text-sm text-gray-500 hover:text-white transition-colors group"
-          >
-            <UIcon
-              name="i-heroicons-document-text"
-              class="size-5 group-hover:text-indigo-400 transition-colors"
-            />
-            Resume
-          </a>
         </div>
       </div>
     </UContainer>
