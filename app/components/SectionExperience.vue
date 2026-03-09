@@ -149,14 +149,20 @@ function getDuration(period: string): string {
   const [startStr = '', endStr = ''] = period.split(' — ')
   const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
-  const parse = (s: string): Date => {
+  const parse = (s: string): Date | null => {
     if (s.trim() === 'Present') return new Date()
     const [mon = '', yr = ''] = s.trim().split(' ')
-    return new Date(parseInt(yr), monthNames.indexOf(mon))
+    const monthIndex = monthNames.indexOf(mon)
+    if (monthIndex === -1 || !yr) return null
+    return new Date(parseInt(yr), monthIndex)
   }
 
+  const start = parse(startStr)
+  const end = parse(endStr)
+  if (!start || !end) return ''
+
   const total = Math.round(
-    (parse(endStr).getTime() - parse(startStr).getTime()) / (1000 * 60 * 60 * 24 * 30.44)
+    (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 30.44)
   )
   const yrs = Math.floor(total / 12)
   const mos = total % 12

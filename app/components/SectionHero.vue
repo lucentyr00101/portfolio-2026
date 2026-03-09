@@ -30,10 +30,19 @@ function onMouseLeave() {
   targetY.value = 50
 }
 
+const prefersReducedMotion = ref(false)
+
 onMounted(() => {
-  animate()
-  heroRef.value?.addEventListener('mousemove', onMouseMove)
-  heroRef.value?.addEventListener('mouseleave', onMouseLeave)
+  prefersReducedMotion.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  if (!heroRef.value || prefersReducedMotion.value) {
+    currentX.value = 50
+    currentY.value = 50
+  } else {
+    animate()
+    heroRef.value.addEventListener('mousemove', onMouseMove)
+    heroRef.value.addEventListener('mouseleave', onMouseLeave)
+  }
 })
 
 onUnmounted(() => {
@@ -76,7 +85,13 @@ function tick() {
   timeout = setTimeout(tick, delay)
 }
 
-onMounted(() => tick())
+onMounted(() => {
+  if (prefersReducedMotion.value) {
+    displayText.value = roles[0]!
+  } else {
+    tick()
+  }
+})
 onUnmounted(() => clearTimeout(timeout))
 </script>
 
