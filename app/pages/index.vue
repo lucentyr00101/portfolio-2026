@@ -16,6 +16,7 @@ useSeoMeta({
   twitterDescription:
     'Vue and Nuxt specialist with 8+ years shipping production apps across fintech, gaming, and Web3 — led teams of 5, owned frontend architecture, and delivered on time.',
   twitterImage: 'https://ranzsarcos.vercel.app/og-image.png',
+  robots: 'index, follow',
 })
 
 useHead({

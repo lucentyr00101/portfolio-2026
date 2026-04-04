@@ -96,7 +96,7 @@ onUnmounted(() => clearTimeout(timeout))
 </script>
 
 <template>
-  <section id="hero" ref="heroRef" class="relative min-h-screen flex items-center overflow-hidden">
+  <section id="hero" ref="heroRef" class="relative min-h-screen flex items-center overflow-hidden" aria-labelledby="hero-heading">
     <!-- Interactive mouse-following gradient -->
     <div
       class="absolute inset-0 pointer-events-none"
@@ -137,7 +137,7 @@ onUnmounted(() => clearTimeout(timeout))
         </div>
 
         <!-- Name -->
-        <h1 class="font-extrabold tracking-tight leading-[1.05] mb-5">
+        <h1 id="hero-heading" class="font-extrabold tracking-tight leading-[1.05] mb-5">
           <span class="block text-6xl sm:text-7xl lg:text-8xl text-white">Redilbert</span>
           <span
             class="block text-6xl sm:text-7xl lg:text-8xl bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent"

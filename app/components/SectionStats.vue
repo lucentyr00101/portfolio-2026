@@ -42,6 +42,8 @@ watch(isVisible, (visible) => {
 <template>
   <div
     ref="statsRef"
+    role="region"
+    aria-label="Career statistics"
     class="border-y border-white/[0.06] transition-all duration-700"
     :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
   >

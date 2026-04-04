@@ -37,7 +37,7 @@ const projects: Project[] = [
 </script>
 
 <template>
-  <section id="projects" class="py-28 relative">
+  <section id="projects" class="py-28 relative" aria-labelledby="projects-heading">
     <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900/30 to-gray-950" />
     <UContainer class="relative z-10">
       <!-- Section header -->
@@ -45,7 +45,7 @@ const projects: Project[] = [
         <span class="text-indigo-400 text-xs font-bold uppercase tracking-[0.2em] mb-3">
           What I've built
         </span>
-        <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">Projects</h2>
+        <h2 id="projects-heading" class="text-4xl sm:text-5xl font-bold text-white mb-4">Projects</h2>
         <p class="text-gray-400 max-w-lg">
           Public work I can share. Most of my professional projects are proprietary and
           company-owned, but the craft behind them is the same.
@@ -62,7 +62,7 @@ const projects: Project[] = [
           :style="{ transitionDelay: gridVisible ? `${index * 100}ms` : '0ms' }"
         >
         <article
-          class="group flex flex-col h-full rounded-2xl bg-white/[0.03] border border-white/[0.08] overflow-hidden hover:border-indigo-500/30 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-indigo-500/5 transition-[transform,border-color,box-shadow,background-color] duration-300 ease-out"
+          class="group flex flex-col h-full rounded-2xl bg-white/[0.03] border border-white/[0.08] overflow-hidden hover:border-indigo-500/30 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-indigo-500/5 focus-within:ring-2 focus-within:ring-indigo-500/50 transition-[transform,border-color,box-shadow,background-color] duration-300 ease-out"
         >
           <!-- Card header gradient -->
           <div class="h-36 bg-gradient-to-br relative shrink-0" :class="project.gradient">
@@ -113,9 +113,10 @@ const projects: Project[] = [
               :href="project.github"
               target="_blank"
               rel="noopener noreferrer"
+              :aria-label="`View source code for ${project.title}`"
               class="flex items-center gap-1.5 text-xs font-medium text-gray-500 hover:text-white transition-colors w-fit"
             >
-              <UIcon name="i-heroicons-code-bracket" class="size-4" />
+              <UIcon name="i-heroicons-code-bracket" class="size-4" aria-hidden="true" />
               View Source
             </a>
           </div>

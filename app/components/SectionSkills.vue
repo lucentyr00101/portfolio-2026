@@ -70,7 +70,7 @@ const colorTagSecondary: Record<Category['color'], string> = {
 </script>
 
 <template>
-  <section id="skills" class="py-28 relative">
+  <section id="skills" class="py-28 relative" aria-labelledby="skills-heading">
     <!-- Section gradient -->
     <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900/40 to-gray-950" />
 
@@ -80,7 +80,7 @@ const colorTagSecondary: Record<Category['color'], string> = {
         <span class="text-indigo-400 text-xs font-bold uppercase tracking-[0.2em] mb-3">
           What I work with
         </span>
-        <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">Tech Stack</h2>
+        <h2 id="skills-heading" class="text-4xl sm:text-5xl font-bold text-white mb-4">Tech Stack</h2>
         <p class="text-gray-400 max-w-lg">
           8+ years of hands-on experience spanning the full modern web development spectrum.
         </p>

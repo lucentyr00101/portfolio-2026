@@ -14,13 +14,36 @@ const navItems: NavItem[] = [
 
 const mobileMenuOpen = ref(false)
 const scrolled = ref(false)
+const hamburgerBtn = ref<HTMLButtonElement>()
 
 function onScroll() {
   scrolled.value = window.scrollY > 20
 }
 
-onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
-onUnmounted(() => window.removeEventListener('scroll', onScroll))
+function onKeydown(e: KeyboardEvent) {
+  if (e.key === 'Escape' && mobileMenuOpen.value) {
+    mobileMenuOpen.value = false
+  }
+}
+
+watch(mobileMenuOpen, async (open) => {
+  if (open) {
+    await nextTick()
+    const firstLink = document.querySelector<HTMLAnchorElement>('#mobile-menu a')
+    firstLink?.focus()
+  } else {
+    hamburgerBtn.value?.focus()
+  }
+})
+
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('keydown', onKeydown)
+})
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('keydown', onKeydown)
+})
 </script>
 
 <template>
@@ -61,9 +84,12 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         <!-- Mobile toggle -->
         <div class="flex items-center gap-3">
           <button
+            ref="hamburgerBtn"
             class="md:hidden hamburger p-1"
             :class="{ 'is-open': mobileMenuOpen }"
             :aria-label="mobileMenuOpen ? 'Close menu' : 'Open menu'"
+            :aria-expanded="mobileMenuOpen"
+            aria-controls="mobile-menu"
             @click="mobileMenuOpen = !mobileMenuOpen"
           >
             <span class="bar bar-top" />
@@ -77,6 +103,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
       <Transition name="slide-down">
         <div
           v-if="mobileMenuOpen"
+          id="mobile-menu"
           class="md:hidden border-t border-white/5 py-4 space-y-1"
         >
           <a

@@ -174,7 +174,7 @@ function getDuration(period: string): string {
 </script>
 
 <template>
-  <section id="experience" class="py-28 relative">
+  <section id="experience" class="py-28 relative" aria-labelledby="experience-heading">
     <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900/30 to-gray-950" />
 
     <UContainer class="relative z-10">
@@ -183,7 +183,7 @@ function getDuration(period: string): string {
         <span class="text-indigo-400 text-xs font-bold uppercase tracking-[0.2em] mb-3">
           Where I've been
         </span>
-        <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">Experience</h2>
+        <h2 id="experience-heading" class="text-4xl sm:text-5xl font-bold text-white mb-4">Experience</h2>
         <p class="text-gray-400 max-w-lg">
           A career built on continuous learning, shipping products that matter, and leveling up
           every step of the way.

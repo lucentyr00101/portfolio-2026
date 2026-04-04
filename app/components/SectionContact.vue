@@ -34,7 +34,7 @@ const links: ContactLink[] = [
 </script>
 
 <template>
-  <section id="contact" class="py-28 relative overflow-hidden">
+  <section id="contact" class="py-28 relative overflow-hidden" aria-labelledby="contact-heading">
     <!-- Dot grid -->
     <div class="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:32px_32px]" />
     <!-- Ambient orbs -->
@@ -54,7 +54,7 @@ const links: ContactLink[] = [
             <p class="text-indigo-400 text-xs font-bold uppercase tracking-[0.2em]">
               Say hello
             </p>
-            <h2 class="text-4xl sm:text-5xl font-bold text-white">
+            <h2 id="contact-heading" class="text-4xl sm:text-5xl font-bold text-white">
               Let's Work Together
             </h2>
             <p class="text-gray-400 text-lg leading-relaxed max-w-lg">
@@ -64,6 +64,7 @@ const links: ContactLink[] = [
           </div>
 
           <!-- Email CTA -->
+          <span role="status" aria-live="polite" class="sr-only">{{ copied ? 'Email address copied to clipboard.' : '' }}</span>
           <UButton
             size="xl"
             :icon="copied ? 'i-heroicons-check' : 'i-heroicons-clipboard'"
